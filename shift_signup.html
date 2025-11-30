@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>signup</title>
+        <style>
+            body {
+                background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            .container {
+                background-color: rgba(255, 255, 255, 0.9);
+                border-radius: 5px;
+                margin-top: 10%;
+                margin-bottom: 10%;
+                height: 500px;
+                width: 600px;
+
+            }
+
+            .title {
+                text-align: center;
+                color: rgba(0, 0, 0, 0.743);
+            }
+
+            .form-button {
+                display: flex;
+                justify-content: center;
+                gap: 20px;
+            }
+
+            .employer-button, .employee-button {
+                background-color: white;
+                color: black;
+                border-color: rgba(0, 0, 0, 0.8);
+                border-radius: 10px;
+                height: 50px;
+                width: 200px;
+                cursor: pointer;
+
+            }
+
+            .clicked {
+                background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            }
+
+            .info {
+                margin-top: 5%;
+            }
+
+            .info strong {
+                font-weight: 400;
+                font-size: 20px;
+                margin-left: 10%;
+            }
+
+            .info input {
+                height: 30px;
+                width: 80%;
+                margin-left: 10%;
+                margin-right: 10%;
+                margin-top: 10px;
+                border-radius: 10px;
+                border-color: rgb(235, 232, 232);
+            }
+
+            .submit-button {
+                color: white;
+                background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+                border: none;
+                border-radius: 5px;
+                height: 50px;
+                width: 40%;
+                margin-top: 5%;
+                margin-left: 30%;
+                margin-right: 30%;
+                cursor: pointer;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="title">
+                <h1>ユーザ情報を入力してください</h1>
+            </div>
+            <form action="/shiftweb/confirm" method="post">
+                <div class="form-button">
+                    <button id="employer-button" class="employer-button" type="submit" name="role" value="employer">雇用者</button>
+                    <button id="employee-button" class="employee-button" type="submit" name="role" value="employee">労働者</button><br>
+                </div>
+                <div class="info">
+                    <strong>メールアドレス</strong><br>
+                    <input type="email" name="email" size="20"><br>
+                    <strong>ユーザネーム</strong><br>
+                    <input type="text" name="name" size="20"><br>
+                    <strong>パスワード</strong><br>
+                    <input type="password" name="password" size="20"><br>
+                </div>
+                <button class="submit-button" type="submit">入力内容確認</button>
+            </form>
+        </div>
+        <script>
+            const erbutton = document.getElementById("employer-button");
+            const eebutton = document.getElementById("employee-button");
+            
+            erbutton.addEventListener("click", () => {
+                erbutton.classList.add("clicked");
+                eebutton.classList.remove("clicked");
+            }); 
+
+            eebutton.addEventListener("click", () => {
+                eebutton.classList.add("clicked");
+                erbutton.classList.remove("clicked");
+            });
+        </script>
+    </body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>signup</title>
+        <style>
+            body {
+                background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            .container {
+                background-color: rgba(255, 255, 255, 0.9);
+                border-radius: 5px;
+                margin-top: 10%;
+                margin-bottom: 10%;
+                height: 500px;
+                width: 600px;
+
+            }
+
+            .title {
+                text-align: center;
+                color: rgba(0, 0, 0, 0.743);
+            }
+
+            .form-button {
+                display: flex;
+                justify-content: center;
+                gap: 20px;
+            }
+
+            .employer-button, .employee-button {
+                background-color: white;
+                color: black;
+                border-color: rgba(0, 0, 0, 0.8);
+                border-radius: 10px;
+                height: 50px;
+                width: 200px;
+                cursor: pointer;
+
+            }
+
+            .clicked {
+                background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            }
+
+            .info {
+                margin-top: 5%;
+            }
+
+            .info strong {
+                font-weight: 400;
+                font-size: 20px;
+                margin-left: 10%;
+            }
+
+            .info input {
+                height: 30px;
+                width: 80%;
+                margin-left: 10%;
+                margin-right: 10%;
+                margin-top: 10px;
+                border-radius: 10px;
+                border-color: rgb(235, 232, 232);
+            }
+
+            .submit-button {
+                color: white;
+                background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+                border: none;
+                border-radius: 5px;
+                height: 50px;
+                width: 40%;
+                margin-top: 5%;
+                margin-left: 30%;
+                margin-right: 30%;
+                cursor: pointer;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="title">
+                <h1>ユーザ情報を入力してください</h1>
+            </div>
+            <form action="/shiftweb/confirm" method="post">
+                <div class="form-button">
+                    <input type="hidden" id="role" name="role">
+                    <input id="employer-button" class="employer-button" type="button" name="role" value="雇用者">
+                    <input id="employee-button" class="employee-button" type="button" name="role" value="労働者"><br>
+                </div>
+                <div class="info">
+                    <strong>メールアドレス</strong><br>
+                    <input type="email" name="email" size="20"><br>
+                    <strong>ユーザネーム</strong><br>
+                    <input type="text" name="name" size="20"><br>
+                    <strong>パスワード</strong><br>
+                    <input type="password" name="password" size="20"><br>
+                </div>
+                <input class="submit-button" type="submit" value="入力内容確認">
+            </form>
+        </div>
+        <script>
+            const erbutton = document.getElementById("employer-button");
+            const eebutton = document.getElementById("employee-button");
+            const roleInput = document.getElementById("role");
+            
+            erbutton.addEventListener("click", () => {
+                erbutton.classList.add("clicked");
+                eebutton.classList.remove("clicked");
+                roleInput.value = "employer";
+            }); 
+
+            eebutton.addEventListener("click", () => {
+                eebutton.classList.add("clicked");
+                erbutton.classList.remove("clicked");
+                roleInput.value = "employee";
+            });
+        </script>
+    </body>
+</html>

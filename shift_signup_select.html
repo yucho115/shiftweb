@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>signup</title>
+        <style>
+            body {
+                background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            .container {
+                background-color: rgba(255, 255, 255, 0.9);
+                border-radius: 5px;
+                margin-top: 10%;
+                margin-bottom: 10%;
+                height: 500px;
+                width: 600px;
+
+            }
+
+            .title {
+                text-align: center;
+                color: rgba(0, 0, 0, 0.743);
+            }
+
+            .form-button {
+                display: flex;
+                justify-content: center;
+                gap: 20px;
+            }
+
+            .employer-button, .employee-button {
+                background-color: white;
+                color: black;
+                border-color: rgba(0, 0, 0, 0.8);
+                border-radius: 10px;
+                height: 50px;
+                width: 200px;
+                cursor: pointer;
+
+            }
+
+            .clicked {
+                background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            }
+
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="title">
+                <h1>ユーザタイプを選択してください</h1>
+            </div>
+            <div class="form-button">
+                <button id="employer-button" class="employer-button" type="submit" name="role" value="employer">雇用者</button>
+                <button id="employee-button" class="employee-button" type="submit" name="role" value="employee">労働者</button><br>
+            </div>
+        </div>
+        <script>
+            const erbutton = document.getElementById("employer-button");
+            const eebutton = document.getElementById("employee-button");
+            
+            erbutton.addEventListener("click", () => {
+                erbutton.classList.add("clicked");
+                eebutton.classList.remove("clicked");
+            }); 
+
+            eebutton.addEventListener("click", () => {
+                eebutton.classList.add("clicked");
+                erbutton.classList.remove("clicked");
+            });
+        </script>
+    </body>
+</html>
